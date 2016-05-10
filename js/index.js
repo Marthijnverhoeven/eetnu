@@ -158,8 +158,9 @@ function refreshCurrentPosition(callback){
 }
 
 function loadTags(){
-    var selectedTags = window.localStorage.getItem('tags');
-    if(!selectedTags){ selectedTags = []; }
+    //var selectedTags = window.localStorage.getItem('tags');
+    var selectedTags = [];
+    //if(!selectedTags){ selectedTags = []; }
 
     var uri = 'https://api.eet.nu/tags';
     $.getJSON(uri, function(json){
@@ -167,14 +168,15 @@ function loadTags(){
         json.results.forEach(function(tag){
             if(tag.context = 'Kitchen'){
                 var isChecked = '';
-                if(selectedTags.indexOf(tag.name) >= 0){
+                /*if(selectedTags.indexOf(tag.name) >= 0){
                     isChecked = 'checked="checked"';
-                }
+                }*/
 
                 $('#menu .tags').append('<input type="checkbox" name="' + tag.name + '" id="' + tag.name + '" ' + isChecked + '><label for="' + tag.name + '">' + tag.name + '</label>');
+                //console.log('<input type="checkbox" name="' + tag.name + '" id="' + tag.name + '" ' + isChecked + '><label for="' + tag.name + '">' + tag.name + '</label>');
             }
         });
-
+        
         $('#menu .tags input[type="checkbox"]').checkboxradio();
     });
 }

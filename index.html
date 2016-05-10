@@ -28,19 +28,19 @@
         <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     </head>
     <body>
-        <div id="home" data-role="page">
+        <div style="height: 100vh; overflow-y: hidden" id="home" data-role="page">
             <div data-role="panel" id="menu" data-display="overlay" data-theme="a">
                 <ul data-role="listview">
                     <li data-icon="gear"><a id="settingslink" href="#settings" data-transition="slide">Instellingen</a></li>
-                    <div data-role="fieldcontain" class="tags">
+                    <div style="overflow-y: scroll; overflow-x: hidden; height:90vh" data-role="fieldcontain" class="tags">
                     </div>
                 </ul>
             </div>
-            <div data-role="header" data-theme="a">
-                <a id="lnkPanelMenu" href="#" data-icon="bars" data-iconpos="notext"></a>
+            <div style="height: 5vh; width: 100vw; position: fixed" data-role="header" data-theme="a">
+                <a id="lnkPanelMenu" href="#" data-icon="bars" data-iconpos="notext" style="padding-left: 35px"></a>
                 <h1 class="ui-title"></h1>
             </div>
-            <div data-role="content" id="content">
+            <div style="overflow-y: scroll; height:95vh; position: relative; top:6vh;" data-role="content" id="content">
                 <input id="txtSearch" />
                 <button id="btnSearch" data-theme="a">Zoeken</button>
                 <ul id="restaurantlist" data-role="listview" data-inset="true">
@@ -65,7 +65,7 @@
                         <p>Dit is de maximale afstand waarmee rekening gehouden wordt bij het zoeken naar eetgelegenheden.<br/>
                         Bijvoorbeeld wanneer je hier 10 invult zal er gezocht worden binnen een straal van 10km en zal de rest buiten beschouwing gelaten worden. Wanneer je hier niets invult zullen alle afstanden gebruikt worden.
                         Let op: Hier moet wel je GPS voor aan staan.</p>
-                        <input type="range" id="distance" data-highlight="true" min="1" max="50" class="ui-hidden-accessible"/>
+                        <input type="range" id="distance" data-highlight="true" min="1" max="50"/>
                     </div>
                      <div data-role="fieldcontain">
                         <h4>Sorteren:</h4>
